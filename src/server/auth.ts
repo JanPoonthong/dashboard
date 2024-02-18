@@ -17,12 +17,11 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: "/",
-    signOut: "/login",
+    signOut: "/",
   },
   adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
-      name: "Credentials",
       credentials: {
         username: {},
         password: {},
@@ -32,8 +31,8 @@ export const authOptions: NextAuthOptions = {
         if (credentials === undefined) return null;
         const user = await prisma.user.findUnique({
           where: {
-            name: credentials.username,
-            password: credentials.password,
+            name: credentials?.username,
+            password: credentials?.password,
           },
         });
 

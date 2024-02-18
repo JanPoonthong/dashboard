@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const router = useRouter();
-  const handleLogin = async (formData: FormData) => {
+  async function handleLogin(formData: FormData) {
     console.log("handleLogin")
     try {
       const response = await signIn("credentials", {
@@ -13,6 +13,7 @@ export default function LoginPage() {
         username: formData.get("username") as string,
         password: formData.get("password") as string,
       });
+      console.log("response", response)
       if (response?.error) throw new Error("Failed to login");
       router.push("/dashboard");
     } catch (error: any) {
