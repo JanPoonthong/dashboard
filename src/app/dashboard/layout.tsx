@@ -1,19 +1,24 @@
-import { getServerAuthSession } from '@/server/auth';
-import { redirect } from 'next/navigation';
-import React from 'react'
+import React from "react";
+import { redirect } from "next/navigation";
+import { getServerAuthSession } from "@/server/auth";
+import Sidebar from "@/ui/dashboard/Sidebar";
+import Topbar from "@/ui/dashboard/Topbar";
 
-type Props = {
+export default async function Layout({
+    children,
+}: {
     children: React.ReactNode;
-}
-
-export default async function layout({ children }: Props) {
+}) {
     const session = await getServerAuthSession();
-    if (!session) {
-        redirect('/');
-    }
+    if (!session) return redirect("/");
+
     return (
-        <main>
-            {children}
+        <main className="flex min-h-[100dvh]">
+            <Sidebar />
+            <div className="w-full bg-[#f8f7fa] p-4">
+                <Topbar />
+                {children}
+            </div>
         </main>
-    )
+    );
 }
