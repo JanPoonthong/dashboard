@@ -4,14 +4,12 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/server/lib/prisma";
 
 export const authOptions: NextAuthOptions = {
-  // callbacks: {
-  //     async session({ session, token, user }) {
-  //         // Send properties to the client, like an access_token and user id from a provider.
-  //         session.accessToken = token.accessToken;
-  //         session.user.id = token.id;
-  //         return session;
-  //     },
-  // },
+  callbacks: {
+    session({ session, token }: any) {
+      session.user.id = token.id;
+      return session
+    }
+  },
   session: {
     strategy: "jwt",
   },
