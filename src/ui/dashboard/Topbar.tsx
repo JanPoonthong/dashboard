@@ -19,7 +19,7 @@ import React, { useState } from "react";
 
 type Props = NonNullable<unknown>;
 
-export default function Topbar({ }: Props) {
+export default function Topbar({}: Props) {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
@@ -45,8 +45,9 @@ export default function Topbar({ }: Props) {
                 <NavbarMenuItem className="mt-6">
                     <Link
                         color="primary"
-                        className={`${pathname == "/dashboard" && "font-bold"
-                            } w-full`}
+                        className={`${
+                            pathname == "/dashboard" && "font-bold"
+                        } w-full`}
                         href="/dashboard"
                         size="lg"
                     >
@@ -54,8 +55,9 @@ export default function Topbar({ }: Props) {
                     </Link>
                     <Link
                         color="primary"
-                        className={`${pathname == "/dashboard/students" && "font-bold"
-                            } w-full`}
+                        className={`${
+                            pathname == "/dashboard/students" && "font-bold"
+                        } w-full`}
                         href="/dashboard/students"
                         size="lg"
                     >
@@ -63,8 +65,9 @@ export default function Topbar({ }: Props) {
                     </Link>
                     <Link
                         color="primary"
-                        className={`${pathname == "/dashboard/analytics" && "font-bold"
-                            } w-full`}
+                        className={`${
+                            pathname == "/dashboard/analytics" && "font-bold"
+                        } w-full`}
                         href="/dashboard/analytics"
                         size="lg"
                     >
