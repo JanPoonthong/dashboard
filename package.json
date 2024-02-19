@@ -1,31 +1,36 @@
 {
-  "name": "simple-webapp",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "prisma generate && next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
-    "@prisma/client": "^5.9.1",
-    "next": "14.1.0",
-    "next-auth": "^4.24.6",
-    "react": "^18",
-    "react-dom": "^18"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "prisma": "^5.9.1",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+    "name": "simple-webapp",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "prisma generate && next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --tab-width 4 --write ."
+    },
+    "dependencies": {
+        "@next-auth/prisma-adapter": "^0.4.4-canary.81",
+        "@nextui-org/react": "^2.2.9",
+        "@prisma/client": "^5.9.1",
+        "framer-motion": "^11.0.5",
+        "next": "14.1.0",
+        "next-auth": "^4.24.6",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-icons": "^5.0.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "autoprefixer": "^10.0.1",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.0",
+        "postcss": "^8",
+        "prettier": "^3.2.5",
+        "prisma": "^5.9.1",
+        "tailwindcss": "^3.3.0",
+        "typescript": "^5"
+    }
 }
