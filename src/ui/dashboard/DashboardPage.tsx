@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
-export default function DashboardPage({ }: Props) {
+export default function DashboardPage({}: Props) {
     return (
         <div>
             <div className="flex-start flex gap-1 self-stretch pb-3 pt-3 text-xl">
@@ -22,5 +22,5 @@ export default function DashboardPage({ }: Props) {
                 {/* <PopularGraph data={await fixFormat()} /> */}
             </div>
         </div>
-    )
+    );
 }

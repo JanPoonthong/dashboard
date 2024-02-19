@@ -5,8 +5,6 @@ import { getServerAuthSession } from "@/server/auth";
 
 type Props = {};
 
-export default function Dashboard({ }: Props) {
-    return (
-        <DashboardPage />
-    )
+export default function Dashboard({}: Props) {
+    return <DashboardPage />;
 }
