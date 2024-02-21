@@ -39,6 +39,7 @@ export default function Sidebar() {
                     <IoPeopleOutline size={24} />
                     <h1 className="ml-2 flex">Students</h1>
                 </Link>
+                {/*
                 <Link
                     className={`mt-1 flex h-10 cursor-pointer items-center rounded-lg px-4  ${
                         pathname == "/dashboard/analytics"
@@ -49,7 +50,7 @@ export default function Sidebar() {
                 >
                     <IoAnalyticsOutline size={24} />
                     <h1 className="ml-2 flex">Analytics</h1>
-                </Link>
+                </Link>*/}
                 <Link
                     className={`mt-1 flex h-10 cursor-pointer items-center rounded-lg px-4  ${
                         pathname == "/api/auth/signout"
