@@ -2,26 +2,33 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LoginPage() {
     const router = useRouter();
+    const [loginError, setLoginError] = useState(false);
+
     async function handleLogin(formData: FormData) {
-        try {
-            const response = await signIn("credentials", {
-                redirect: false,
-                username: formData.get("username") as string,
-                password: formData.get("password") as string,
-            });
-            if (response?.error) throw new Error("Failed to login");
+        const response = await signIn("credentials", {
+            redirect: false,
+            username: formData.get("username") as string,
+            password: formData.get("password") as string,
+        });
+        if (response?.error === "Wrong credentials") {
+            return setLoginError(true);
+        } else {
             router.push("/dashboard");
-        } catch (error: any) {
-            console.log("Failed to login: ", error);
         }
     }
 
     return (
         <main>
             <h1>Login</h1>
+            {loginError ? (
+                <p className="text-red-500">Wrong credentials</p>
+            ) : (
+                <></>
+            )}
             <form action={handleLogin}>
                 <input name="username" type="text" placeholder="Username" />
                 <input name="password" type="password" placeholder="Password" />
