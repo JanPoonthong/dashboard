@@ -4,16 +4,10 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/server/lib/prisma";
 
 export const authOptions: NextAuthOptions = {
-    callbacks: {
-        session({ session, token }: any) {
-            session.user.id = token.id;
-            console.log(token.id);
-            return session;
-        },
-    },
     secret: process.env.SECRET,
     session: {
         strategy: "jwt",
+        maxAge: 30 * 24 * 60 * 60,
     },
     pages: {
         signIn: "/",
@@ -27,8 +21,8 @@ export const authOptions: NextAuthOptions = {
                 password: {},
             },
             authorize: async (credentials) => {
-                console.log("Authorize");
                 if (credentials === undefined) return null;
+
                 const user = await prisma.user.findUnique({
                     where: {
                         name: credentials?.username,
@@ -37,14 +31,9 @@ export const authOptions: NextAuthOptions = {
                 });
 
                 if (user) {
-                    const mappedUser = {
-                        id: user.id,
-                        name: user.name,
-                        role: user.role,
-                    };
-                    return mappedUser;
+                    return user;
                 } else {
-                    return null;
+                    throw new Error("Wrong credentials");
                 }
             },
         }),
