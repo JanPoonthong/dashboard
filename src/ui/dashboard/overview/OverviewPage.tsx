@@ -5,6 +5,8 @@ import PopularGraph from "./PopularGraph";
 import NumberAnalytic from "./NumberAnalytic";
 import StudentsPage from "../students/StudentsPage";
 import {HeatMap} from "@/server/lib/definitions";
+import LineGraph from "./LineGraph"
+import TopTenTable from "./TopTenTable"
 
 // type Props = {
 //     students: any;
@@ -28,8 +30,14 @@ export default function DashboardPage({popularGraphData }: Props) {
                 {/* <StudentHeader /> */}
                 {/* <StudentsPage students={students} /> */}
             </div>
-            <div className="pt-3">
-                <PopularGraph data={popularGraphData} />
+            <div className="pt-3 flex">
+                <div className="w-[70%]">
+                    <PopularGraph data={popularGraphData} />
+                    <LineGraph />
+                </div>
+                <div>
+                    <TopTenTable />
+                </div>
             </div>
         </div>
     );
