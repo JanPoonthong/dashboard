@@ -1,12 +1,21 @@
-'use client';
+"use client";
 
-import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure } from '@nextui-org/react'
-import React from 'react'
-import { IoAddOutline } from 'react-icons/io5'
+import {
+    Button,
+    Input,
+    Modal,
+    ModalBody,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    useDisclosure,
+} from "@nextui-org/react";
+import React from "react";
+import { IoAddOutline } from "react-icons/io5";
 
-type Props = {}
+type Props = {};
 
-export default function AddStudent({ }: Props) {
+export default function AddStudent({}: Props) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [studentID, setStudentID] = React.useState("");
     const [studentName, setStudentName] = React.useState("");
@@ -16,11 +25,15 @@ export default function AddStudent({ }: Props) {
 
     const handleAdd = () => {
         console.log(studentID, studentName, faculty, startTime, endTime);
-    }
+    };
 
     return (
         <div>
-            <Button color="primary" endContent={<IoAddOutline />} onPress={onOpen}>
+            <Button
+                color="primary"
+                endContent={<IoAddOutline />}
+                onPress={onOpen}
+            >
                 Add Student
             </Button>
             <Modal
@@ -51,7 +64,7 @@ export default function AddStudent({ }: Props) {
                                 />
                                 <div className="flex gap-2">
                                     <div className="grid gap-1 w-full">
-                                        <p className='text-sm'>Start Time</p>
+                                        <p className="text-sm">Start Time</p>
                                         <Input
                                             type="time"
                                             variant="bordered"
@@ -60,7 +73,7 @@ export default function AddStudent({ }: Props) {
                                         />
                                     </div>
                                     <div className="grid gap-1 w-full">
-                                        <p className='text-sm'>End Time</p>
+                                        <p className="text-sm">End Time</p>
                                         <Input
                                             type="time"
                                             variant="bordered"
@@ -91,5 +104,5 @@ export default function AddStudent({ }: Props) {
                 </ModalContent>
             </Modal>
         </div>
-    )
+    );
 }

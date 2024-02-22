@@ -4,19 +4,17 @@ import React from "react";
 import PopularGraph from "./PopularGraph";
 import NumberAnalytic from "./NumberAnalytic";
 import StudentsPage from "../students/StudentsPage";
-import {HeatMap} from "@/server/lib/definitions";
-import LineGraph from "./LineGraph"
-import TopTenTable from "./TopTenTable"
+import { HeatMap } from "@/server/lib/definitions";
+import LineGraph from "./LineGraph";
+import TopTenTable from "./TopTenTable";
 
 // type Props = {
 //     students: any;
 // };
-type Props = {popularGraphData: HeatMap[]};
-
-
+type Props = { popularGraphData: HeatMap[] };
 
 // export default function DashboardPage({ students }: Props) {
-export default function DashboardPage({popularGraphData }: Props) {
+export default function DashboardPage({ popularGraphData }: Props) {
     return (
         <div>
             <div className="flex-start flex gap-1 self-stretch pb-3 pt-3 text-xl">
