@@ -4,16 +4,17 @@ import React from "react";
 import PopularGraph from "./PopularGraph";
 import NumberAnalytic from "./NumberAnalytic";
 import StudentsPage from "../students/StudentsPage";
+import {HeatMap} from "@/server/lib/definitions";
 
 // type Props = {
 //     students: any;
 // };
-type Props = {};
+type Props = {popularGraphData: HeatMap[]};
 
 
 
 // export default function DashboardPage({ students }: Props) {
-export default function DashboardPage({ }: Props) {
+export default function DashboardPage({popularGraphData }: Props) {
     return (
         <div>
             <div className="flex-start flex gap-1 self-stretch pb-3 pt-3 text-xl">
@@ -28,7 +29,7 @@ export default function DashboardPage({ }: Props) {
                 {/* <StudentsPage students={students} /> */}
             </div>
             <div className="pt-3">
-                <PopularGraph data={[]} />
+                <PopularGraph data={popularGraphData} />
             </div>
         </div>
     );
