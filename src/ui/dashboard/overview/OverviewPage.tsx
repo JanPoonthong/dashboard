@@ -35,7 +35,7 @@ export default function DashboardPage({popularGraphData }: Props) {
                     <PopularGraph data={popularGraphData} />
                     <LineGraph />
                 </div>
-                <div>
+                <div className="w-[30%]">
                     <TopTenTable />
                 </div>
             </div>

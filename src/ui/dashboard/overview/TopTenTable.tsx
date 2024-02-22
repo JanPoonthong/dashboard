@@ -19,7 +19,7 @@ const data = [
 
 export default function TopTenTable() {
     return (
-        <div className="w-full">
+        <>
             <h2>Top 5 most entered student</h2>
             <Table aria-label="Example static collection table">
                 <TableHeader>
@@ -41,6 +41,6 @@ export default function TopTenTable() {
                     })}
                 </TableBody>
             </Table>
-        </div>
+        </>
     );
 }
