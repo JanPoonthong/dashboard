@@ -19,7 +19,7 @@ export async function updateStudentStartAndEndTime(input: Student) {
     }
 }
 
-export async function deleteStudentByID(studentID: number) {
+export async function deleteStudentByID(studentID: string) {
     try {
         const deletedStudent = await prisma.student.delete({
             where: {
@@ -40,8 +40,11 @@ export async function createStudent(input: Student[]) {
                 return prisma.student.create({
                     data: {
                         studentID: item.studentID,
+                        studentName: item.studentName,
                         startTime: item.startTime,
                         endTime: item.endTime,
+                        unit: item.unit,
+                        expiresAt: item.exp,
                     },
                 });
             }),
@@ -49,6 +52,7 @@ export async function createStudent(input: Student[]) {
 
         console.log("Students created successfully:", createdStudents);
     } catch (error) {
+        console.log(error);
         throw new Error("Can't createStudent() on action.ts");
     }
 }
