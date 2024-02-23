@@ -17,14 +17,17 @@ model Analytics {
 }
 
 model Student {
-  id        Int    @id @default(autoincrement())
-  studentID Int    @unique
-  startTime String
-  endTime   String
+  id          Int      @id @default(autoincrement())
+  studentID   String   @unique
+  studentName String
+  unit        String
+  startTime   String
+  endTime     String
+  expiresAt   DateTime
 }
 
 model User {
-  id            String    @id
-  name          String    @unique
-  password      String?
+  id       String  @id
+  name     String  @unique
+  password String?
 }
