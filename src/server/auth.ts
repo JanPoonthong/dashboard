@@ -27,15 +27,21 @@ interface User {
 }
 
 export const authOptions: NextAuthOptions = {
-
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    jwt({ token, user }: { token: any, user: any }) {
+      if (user) {
+        token.id = user.id
+
+      }
+      return token
+    },
+    session({ session, token }: any) {
+      session.user.id = token.id
+      return session
+    }
   },
   adapter: PrismaAdapter(db) as Adapter,
   providers: [
