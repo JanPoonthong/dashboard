@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { getServerAuthSession } from "~/server/auth";
 import { Providers } from "./providers";
+import '../styles/globals.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,7 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     const session = await getServerAuthSession();
     return (
-        <html lang="en" className='dark'>
+        <html lang="en" className='light'>
             <body className={inter.className}>
                 <Providers session={session}>
                     {children}
