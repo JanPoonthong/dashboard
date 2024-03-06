@@ -1,33 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+    provider = "mysql"
+    // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
+    // Further reading:
+    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
+    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
+    url      = env("DATABASE_URL")
 }
 
-model Analytics {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime
-  year1     Int
-  year2     Int
-  year3     Int
-  year4     Int
+model Admin {
+    id       Int     @id
+    username String  @unique
+    password String?
 }
 
 model Student {
-  id          Int      @id @default(autoincrement())
-  studentID   String   @unique
-  studentName String
-  unit        String
-  startTime   String
-  endTime     String
-  expiresAt   DateTime
+    id           Int      @id @default(autoincrement())
+    student_id   String   @unique
+    student_name String
+    unit         String
+    start_time   DateTime
+    end_time     DateTime
+    expires_at   DateTime
 }
 
-model User {
-  id       String  @id
-  name     String  @unique
-  password String?
+model Log {
+    id         Int      @id @default(autoincrement())
+    student_id String
+    created_at DateTime
 }
